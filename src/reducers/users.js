@@ -5,10 +5,10 @@ export const getUsers = createAsyncThunk(
   "users/getUsers",
   async (_, { rejectWithValue, dispatch }) => {
     try {
-      const { data } = await axios.get(
+      const { data = [] } = await axios.get(
         "https://6264fc9e94374a2c506bde51.mockapi.io/users"
       );
-      console.log(data);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -120,7 +120,9 @@ export const slice = createSlice({
       state.loading = false;
       state.users = action.payload;
     },
-    [getUsers.rejected]: setError,
+    [getUsers.rejected]: (state) => {
+      state.users = [];
+    },
     [addUsers.pending]: setLoading,
     [addUsers.fulfilled]: (state, action) => {
       state.loading = false;
