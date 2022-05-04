@@ -43,7 +43,7 @@ const Albums = (props) => {
 
   useEffect(() => {
     dispatch(getAlbums(page));
-  }, []);
+  }, [dispatch, page]);
   return (
     <Container sx={{ py: 8 }} maxWidth="md">
       {/* End hero unit */}

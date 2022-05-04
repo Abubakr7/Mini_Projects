@@ -61,7 +61,7 @@ function Users(props) {
 
   useEffect(() => {
     dispatch(getUsers());
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       <Button
