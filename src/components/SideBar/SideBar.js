@@ -16,6 +16,7 @@ import ListIcon from "@mui/icons-material/List";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import PeopleIcon from "@mui/icons-material/People";
 import MuiDrawer from "@mui/material/Drawer";
+import { TextSnippet } from "@mui/icons-material";
 
 const drawerWidth = 240;
 
@@ -63,29 +64,17 @@ function SideBar(props) {
       </Toolbar>
       <Divider />
       <List component="nav">
-        <ListItemButton component={Link} to="/">
+        <ListItemButton component={Link} to="/dashboard/test">
           <ListItemIcon>
-            <PlusOneIcon />
+            <TextSnippet />
           </ListItemIcon>
-          <ListItemText primary="Counter" />
+          <ListItemText primary="Test" />
         </ListItemButton>
-        <ListItemButton component={Link} to="/todos">
-          <ListItemIcon>
-            <ListIcon />
-          </ListItemIcon>
-          <ListItemText primary="Todos" />
-        </ListItemButton>
-        <ListItemButton component={Link} to="/users">
+        <ListItemButton component={Link} to="/dashboard/users">
           <ListItemIcon>
             <PeopleIcon />
           </ListItemIcon>
           <ListItemText primary="Users" />
-        </ListItemButton>
-        <ListItemButton component={Link} to="/albums">
-          <ListItemIcon>
-            <PhotoCameraIcon />
-          </ListItemIcon>
-          <ListItemText primary="Albums" />
         </ListItemButton>
       </List>
     </Drawer>

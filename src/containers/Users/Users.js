@@ -90,20 +90,20 @@ function Users(props) {
           <TableBody>
             {users.map((user) => (
               <TableRow
-                key={user.id}
+                key={user?.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {user.id}
+                  {user?.id}
                 </TableCell>
-                <TableCell>{user.createdAt.slice(0, 10)}</TableCell>
-                <TableCell>{user.name}</TableCell>
-                <TableCell>{user.age}</TableCell>
-                <TableCell>{user.email}</TableCell>
-                <TableCell>{user.phone}</TableCell>
+                <TableCell>{user?.createdAt?.slice(0, 10)}</TableCell>
+                <TableCell>{user?.name}</TableCell>
+                <TableCell>{user?.age}</TableCell>
+                <TableCell>{user?.email}</TableCell>
+                <TableCell>{user?.phone}</TableCell>
                 <TableCell>
                   <IconButton
-                    onClick={() => onOpen("editModal", user.id)}
+                    onClick={() => onOpen("editModal", user?.id)}
                     color="warning"
                   >
                     <EditIcon />
@@ -111,7 +111,7 @@ function Users(props) {
                 </TableCell>
                 <TableCell>
                   <IconButton
-                    onClick={() => onOpen("deleteModal", user.id)}
+                    onClick={() => onOpen("deleteModal", user?.id)}
                     color="error"
                   >
                     <DeleteIcon />
