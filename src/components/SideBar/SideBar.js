@@ -1,3 +1,6 @@
+import { Dashboard, Home } from "@mui/icons-material";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import PeopleIcon from "@mui/icons-material/People";
 import {
   Divider,
   IconButton,
@@ -7,16 +10,10 @@ import {
   ListItemText,
   Toolbar,
 } from "@mui/material";
+import MuiDrawer from "@mui/material/Drawer";
 import { styled } from "@mui/material/styles";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import React from "react";
 import { Link } from "react-router-dom";
-import PlusOneIcon from "@mui/icons-material/PlusOne";
-import ListIcon from "@mui/icons-material/List";
-import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
-import PeopleIcon from "@mui/icons-material/People";
-import MuiDrawer from "@mui/material/Drawer";
-import { TextSnippet } from "@mui/icons-material";
 
 const drawerWidth = 240;
 
@@ -64,11 +61,17 @@ function SideBar(props) {
       </Toolbar>
       <Divider />
       <List component="nav">
-        <ListItemButton component={Link} to="/dashboard/test">
+        <ListItemButton component={Link} to="/dashboard">
           <ListItemIcon>
-            <TextSnippet />
+            <Dashboard />
           </ListItemIcon>
-          <ListItemText primary="Test" />
+          <ListItemText primary="Dasboard" />
+        </ListItemButton>
+        <ListItemButton component={Link} to="/dashboard/homecontent">
+          <ListItemIcon>
+            <Home />
+          </ListItemIcon>
+          <ListItemText primary="Home Content" />
         </ListItemButton>
         <ListItemButton component={Link} to="/dashboard/users">
           <ListItemIcon>

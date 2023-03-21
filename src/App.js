@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
-import { Link, Outlet, Route, Routes, useNavigate } from "react-router-dom";
-import Layout from "./layout/Layout";
-import Counter from "./containers/Counter/Counter";
-import Todos from "./containers/Todos/Todos";
-import Users from "./containers/Users/Users";
-import Albums from "./containers/Albums/Albums";
 import Login from "./containers/Login/Login";
 import Register from "./containers/Register/Register";
+import Users from "./containers/Users/Users";
+import Home from "./home/Home";
+import Layout from "./layout/Layout";
 import { RequireAuth } from "./utils/RequireAuth";
+import Dashboard from "./containers/Dashboard/Dashboard";
+import HomeContent from "./containers/HomeContent/HomeContent";
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -21,19 +21,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Link to="/login">login</Link>
-              <Link to="/register">register</Link>
-              <Outlet />
-            </>
-          }
-        >
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
         <Route
           path="/dashboard"
           element={
@@ -42,10 +33,9 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<Counter />} />
-          <Route path="todos" element={<Todos />} />
+          <Route index element={<Dashboard />} />
+          <Route path="homecontent" element={<HomeContent />} />
           <Route path="users" element={<Users />} />
-          <Route path="albums" element={<Albums />} />
         </Route>
       </Routes>
     </>
